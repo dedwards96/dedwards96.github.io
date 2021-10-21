@@ -1,9 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    sayHello("Dan");
+    getStatus();
 })
 
-function sayHello(name) {
-    const phrase = document.createElement('h4');
-    phrase.innerHTML = `Hi ${name}, this text was added by js.`;
-    document.querySelector('body').append(phrase);
+const endpoint = "http://dedwards.duckdns.org:1234/";
+
+function getStatus() {
+    const url = endpoint.concat('/status');
+    document.getElementById('status').innerHTML = 'getStatus function ran';
+    fetch(url)
+    .then(response => console.log(response));
+}
+
+function toggle() {
+    const url = endpoint.concat('/toggle');
+    fetch(url);
+    getStatus();
 }
