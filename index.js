@@ -5,14 +5,14 @@ document.addEventListener('DOMContentLoaded', function() {
 const endpoint = "http://dedwards.duckdns.org:1234/";
 
 function getStatus() {
-    const url = endpoint.concat('/status');
+    const url = endpoint.concat('status');
     document.getElementById('status').innerHTML = 'getStatus function ran';
     fetch(url)
     .then(response => console.log(response));
 }
 
 function toggle() {
-    const url = endpoint.concat('/toggle');
+    const url = endpoint.concat('toggle');
     fetch(url);
     getStatus();
 }
